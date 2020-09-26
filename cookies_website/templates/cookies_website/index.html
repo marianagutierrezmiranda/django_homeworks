@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'cookies_website/style.css' %}">
+</head>
+<body>
+
+{% if nombre %}
+	<h1>Bienvenido a mi sitio {{ nombre }}</h1>
+	<p>Datos de tu cookie</p>
+	<div>
+		Caducidad de la sesión en minutos: {{ expiry_age }}
+		<br>
+		Fecha de caducidad de la sesión: {{ expiry_date }}
+		<br>
+	</div>
+	<a href="/cookies_website/">Inicio</a>
+{% else %}
+	<h1>Bienvenido a mi sitio</h1>
+	<p>Registro</p>
+	<div>
+		<form action="/cookies_website/" method="post"> {% csrf_token %}
+		  <label for="nombre">Nombre:</label><br>
+		  <input type="text" id="nombre" name="nombre" value="Mariana"><br>
+		  <input type="submit" value="Enviar">
+		</form> 
+	</div>
+{% endif %}
+
+</body>
+</html>

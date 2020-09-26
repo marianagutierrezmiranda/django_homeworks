@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'catalogo/style.css' %}">
+</head>
+<body>
+<h1>Catalogo en linea</h1>
+	<p>Agregar datos</p>
+	<div>
+	<form action="/catalogo/" method="post"> {% csrf_token %}
+		<label for="nombre">Nombre Cliente:</label><br>
+		<input type="text" id="nombre_cliente" name="nombre_cliente" value="Mariana Miranda"><br>
+		<label for="nombre">Nombre Producto:</label><br>
+		<input type="text" id="nombre_producto" name="nombre_producto" value="Shampoo Pantene"><br>
+		<input type="submit" value="Enviar">
+	</form> 
+	</div>
+{% if clientes %}
+	<h1>Catalogo</h1>
+	<p>Clientes</p>
+	<div>
+		{% for cliente in clientes %}
+			{{ cliente.id }} {{ cliente.nombre }}<br>
+		{% endfor %}
+	</div>
+{% endif %}
+{% if productos %}
+	<p>Productos</p>
+	<div>
+		{% for producto in productos %}
+			{{ producto.id }} {{ producto.nombre }}<br>
+		{% endfor %}
+	</div>
+{% endif %}
+	
+</body>
+</html>

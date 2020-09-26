@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>Nectaria - Free HTML Template by WowThemes.net</title>
+<meta name="description" content="Thoughts, reviews and ideas since 1999."/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="shortcut icon" href="#">
+<link rel="stylesheet" type="text/css" href="/static/blog/css/screen.css"/>
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:400,300italic,300,400italic,700,700italic|Playfair+Display:400,700,400italic,700italic"/>
+</head>
+<body class="author-template">
+<div class="site-wrapper">
+	<nav class="main-nav overlay clearfix">
+	<a class="blog-logo" href="/blog"><img src="/static/blog/img/logo.jpg" alt="Fashion Critiques"/></a>
+	<ul id="menu">
+		<li class="nav-home nav-current" role="presentation"><a href="/blog">Home</a></li>
+		<li class="nav-article-example" role="presentation"><a href="/blog/article">Post</a></li>
+		<li class="nav-about-us" role="presentation"><a href="/blog/about">About_Me</a></li>
+		<li class="nav-author-page" role="presentation"><a href="/blog/emails">Emails_Notification</a></li>
+		<span class="socialheader">
+		<a href="#"><span class='symbol'>circletwitterbird</span></a>
+		<a href="#"><span class='symbol'>circlefacebook</span></a>
+		<a href="#"><span class='symbol'>circlegoogleplus</span></a>
+		<a href="mailto:wowthemesnet@gmail.com"><span class='symbol'>circleemail</span></a>
+		</span>
+	</ul>
+	</nav>
+	<header class="main-header author-head " style="background-image: url(http://s3.amazonaws.com/caymandemo/wp-content/uploads/sites/10/2015/09/30162427/sep2.jpg)">
+	</header>
+	<section class="author-profile inner">
+	<figure class="author-image">
+	<div class="img" style="background-image: url(/static/blog/img/logo.jpg)">
+		<span class="hidden">David's Picture</span>
+	</div>
+	</figure>
+	<h1 class="author-title">Mariana</h1>
+	<h2 class="author-bio">Do you want to get email notifications each time I publish a new post? then please subscribe</h2>
+	<div class="author-meta">
+	<!--
+		<span class="author-location icon-location">Planet Earth</span>
+		<span class="author-link icon-link"><a href="http://www.wowthemes.net">http://www.wowthemes.net</a></span>
+		<span class="author-stats"><i class="icon-stats"></i> 13 posts</span>
+	-->
+	</div>
+	</section>
+	<main class="content" role="main">
+	<div class="grid">
+	<div class="grid-item" style="position: absolute; width: 100%; top: 0px; text-align: center;">
+				<article class="post">
+				<div class="wrapgriditem">
+					<header class="post-header">
+					<h2 class="post-title"><a href="/blog/article">Email</a></h2>
+					</header>
+					<section class="post-excerpt">
+					        <form action="/blog/emails" method="post"> {% csrf_token %}
+								<input type="text" id="email" name="email" value="your_email@gmail.com">
+								<br><br>
+								<input type="submit" value="Enviar">
+							</form>
+							<br>
+					</section>
+					<img class="author-thumb" src="/static/blog/img/logo.jpg" alt="Mariana" nopin="nopin" style="position: absolute;">
+					{% if msg and emails%}
+						<p>{{ msg }}</p>
+						<div>
+							{% for email in emails %} 
+								{{ email.email }}<br> 
+							{% endfor %}
+						</div>
+					{% endif %}
+					<footer class="post-meta">
+					<!-- 
+					<a href="/blog/emails">David</a>
+					<time class="post-date" datetime="2020-12-18">18 December 2020</time>
+					-->
+					</footer>
+				</div>
+				</article>
+			</div>
+	</div>
+	<nav class="pagination" role="navigation">
+	<!-- <span class="page-number">Page 1 of 2</span>
+	<a class="older-posts" href="#">Older Posts &rarr;</a>
+	-->
+	</nav>
+	</main>
+	<footer class="site-footer clearfix">
+	<a href="#top" id="back-to-top" class="back-top"></a>
+	<div class="text-center">
+		<a href="/blog">Mariana Miranda</a> &copy; 2020<br/>
+		Free HTML Template by <a href="https://wowthemes.net">WowThemes.net</a>
+	</div>
+	</footer>
+</div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/static/blog/js/masonry.min.js"></script>
+<script type="text/javascript" src="/static/blog/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/static/blog/js/index.js"></script>
+</body>
+</html>

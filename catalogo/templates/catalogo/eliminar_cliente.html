@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'catalogo/style.css' %}">
+</head>
+
+<body>
+    <h1>Eliminar cliente</h1>
+    <p>Busqueda</p>
+    <div>
+        <form action="/catalogo/eliminar_cliente" method="post"> {% csrf_token %}
+            <label for="nombre">Nombre Cliente:</label><br>
+            <input type="text" id="nombre_cliente" name="nombre_cliente"><br>
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+    {% if clientes %}
+    <h1>Resultados de busqueda</h1>
+    <p></p>
+    <div>
+        {% for cliente in clientes %} 
+			{{ cliente.id }} {{ cliente.nombre }}<br> 
+		{% endfor %}
+    </div>
+    {% endif %}
+
+</body>
+
+</html>
